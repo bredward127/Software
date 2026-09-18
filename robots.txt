@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://software-khaki-zeta.vercel.app/sitemap.xml
