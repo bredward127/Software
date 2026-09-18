@@ -66,11 +66,15 @@ nav {
   overflow-x: auto;
   padding-bottom: 0.25rem;
   scrollbar-width: none;
+  flex: 1 1 auto;
+  min-width: 0;
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 20px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 20px), transparent);
 }
 nav::-webkit-scrollbar {
   display: none;
 }
-nav a {
+nav a, .nav-guides {
   color: var(--text-muted);
   text-decoration: none;
   padding: 0.5rem 0.9rem;
@@ -81,14 +85,18 @@ nav a {
   white-space: nowrap;
   border: 1px solid transparent;
 }
-nav a:hover {
+nav a:hover, .nav-guides:hover {
   color: var(--text);
   background-color: #eef2ff;
 }
-nav a.active {
+nav a.active, .nav-guides.active {
   color: #fff;
   background: linear-gradient(135deg, var(--primary), #6366f1);
   box-shadow: 0 4px 10px -2px rgba(79, 70, 229, 0.5);
+}
+.nav-guides {
+  flex-shrink: 0;
+  border: 1px solid var(--card-border);
 }
 main {
   max-width: 1200px;
