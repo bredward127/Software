@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DropTools Hub - Top Rated Dropshipping & Logistics Software</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #10b981;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.5rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    nav a:hover, nav a.active {
+      color: var(--text);
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    @media (min-width: 900px) {
+      .hero {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+      }
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #000;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--card-border);
+    }
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .mute-hint {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      background-color: rgba(15, 23, 42, 0.85);
+      color: var(--text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      pointer-events: none;
+    }
+    .hero-content h1 {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+    .hero-content p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      background-color: transparent;
+    }
+    .btn-outline:hover {
+      background-color: var(--card-bg);
+    }
+    .btn-affiliate {
+      background-color: var(--accent);
+      color: #042f2e;
+      font-weight: 700;
+      width: 100%;
+    }
+    .btn-affiliate:hover {
+      background-color: #059669;
+      color: #fff;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #facc15;
+      background-color: rgba(250, 204, 21, 0.1);
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+    }
+    /* Comparison Grid */
+    .table-wrapper {
+      overflow-x: auto;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      background-color: var(--card-bg);
+      margin-bottom: 2.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    th {
+      background-color: rgba(15, 23, 42, 0.6);
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover td {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+    /* Cards layout for responsive / detailed view */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .card-description {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      min-height: 55px;
+    }
+    .card-features {
+      list-style: none;
+      margin-bottom: 1.25rem;
+      font-size: 0.85rem;
+    }
+    .card-features li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card-features li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .card-pricing {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#all" class="logo" onclick="navigate('all')">
+        <span>⚡</span> DropTools Hub
+      </a>
+      <nav id="category-nav">
+        <a href="#all" class="active" onclick="navigate('all')">All Top 10</a>
+        <a href="#automation" onclick="navigate('automation')">/automation</a>
+        <a href="#sourcing" onclick="navigate('sourcing')">/sourcing</a>
+        <a href="#shipping" onclick="navigate('shipping')">/shipping</a>
+        <a href="#print-on-demand" onclick="navigate('print-on-demand')">/print-on-demand</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Dynamic Header & Hero Video Block -->
+    <section class="hero" id="hero-section">
+      <div class="video-container">
+        <iframe
+          id="hero-video"
+          src="https://www.youtube-nocookie.com/embed/gW715vjN7k8?rel=0&autoplay=1&mute=1&playsinline=1"
+          title="Product Spotlight Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <div class="mute-hint">🔇 Muted autoplay — click video to unmute</div>
+      </div>
+      <div class="hero-content">
+        <div id="hero-badge" class="rating-badge" style="margin-bottom: 0.5rem;">Capterra 2026 Verified Selection</div>
+        <h1 id="hero-title">Scale Your Dropshipping Store with Proven Software</h1>
+        <p id="hero-description">Streamline product imports, eliminate manual order entries, and secure tier-one shipping discounts with top-rated tools verified by real user feedback.</p>
+        <div class="cta-group">
+          <a id="hero-primary-cta" href="#featured-grid" class="btn btn-primary">Compare Features &amp; Pricing</a>
+          <a id="hero-secondary-cta" href="https://autods.com" target="_blank" rel="noopener sponsored" class="btn btn-outline">Visit Featured Platform</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparative Grid Section -->
+    <section id="featured-grid">
+      <div class="section-title">
+        <h2 id="section-heading">Comparative Performance Grid</h2>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Software</th>
+              <th>Capterra Rating</th>
+              <th>Key Strengths &amp; Functionality</th>
+              <th>Starting Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="comparison-table-body">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin: 2rem 0 1rem; font-size: 1.3rem;">Detailed Feature Breakdowns</h3>
+      <div class="cards-grid" id="cards-container">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Affiliate Disclosure: We review and compare software to help you choose the right tools. When you click through our links and complete a purchase, we may receive an affiliate commission at no extra cost to you.</p>
+  </footer>
+
+  <script>
+    // Master Product Catalog parsed from Capterra Report 2026
+    const products = [
+      {
+        id: "autods",
+        name: "AutoDS",
+        category: "automation",
+        rating: 4.0,
+        reviews: 174,
+        features: ["Automated order fulfillment", "Price & stock monitor 24/7", "Supports Shopify, eBay, FB, Wix & TikTok"],
+        pricing: "From $26.90 / mo",
+        description: "Comprehensive automation software handling product research, cross-platform listings, and auto-orders.",
+        affiliateUrl: "https://www.autods.com?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/gW715vjN7k8?rel=0&autoplay=1&mute=1&playsinline=1"
+      },
+      {
+        id: "hustle-got-real",
+        name: "Hustle Got Real",
+        category: "automation",
+        rating: 4.7,
+        reviews: 40,
+        features: ["80+ integrated supplier connections", "Multi-marketplace synchronizer", "Automated repricing algorithms"],
+        pricing: "Free plan / From £19 / mo",
+        description: "Multi-channel dropshipping automation platform engineered for scaling stores without manual inventory tracking.",
+        affiliateUrl: "https://hustlegotreal.com?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/8wUI3f4z0rE?rel=0&autoplay=1&mute=1&playsinline=1"
+      },
+      {
+        id: "spocket",
+        name: "Spocket",
+        category: "sourcing",
+        rating: 2.6,
+        reviews: 41,
+        features: ["Fast US & EU suppliers", "One-click order processing", "Branded invoicing options"],
+        pricing: "From $39.99 / mo",
+        description: "Curated supplier marketplace focused on domestic US and EU shipping times to reduce customer wait periods.",
+        affiliateUrl: "https://www.spocket.co?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/e1P0J2y9qK4?rel=0&autoplay=1&mute=1&playsinline=1"
+      },
+      {
+        id: "dsers",
+        name: "DSers",
+        category: "sourcing",
+        rating: 4.7,
+        reviews: 19,
+        features: ["Official AliExpress partner", "Bulk order placement in seconds", "Supplier optimizer tool"],
+        pricing: "Free plan / From $19.90 / mo",
+        description: "High-speed AliExpress supplier integration tool enabling multi-store management and supplier switching.",
+        affiliateUrl: "https://www.dsers.com?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/jZ_y8u0hQn8?rel=0&autoplay=1&mute=1&playsinline=1"
+      },
+      {
+        id: "sellvia",
+        name: "Sellvia",
+        category: "sourcing",
+        rating: 4.6,
+        reviews: 48,
+        features: ["1-3 day US delivery speeds", "California fulfillment facility", "Done-for-you marketing assets"],
+        pricing: "From $39 / mo",
+        description: "Turnkey dropshipping ecosystem providing products pre-stocked in US warehouses with rapid domestic shipping.",
+        affiliateUrl: "https://sellvia.com?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/Q4XG6K5U2aE?rel=0&autoplay=1&mute=1&playsinline=1"
+      },
+      {
+        id: "shippo",
+        name: "Shippo",
+        category: "shipping",
+        rating: 4.8,
+        reviews: 827,
+        features: ["Deep USPS & UPS discounts", "Automated tracking updates", "No monthly fee starter tier"],
+        pricing: "Free to start / Pro from $10 / mo",
+        description: "Multi-carrier shipping powerhouse trusted by 300,000+ merchants for label generation and rate shopping.",
+        affiliateUrl: "https://goshippo.com?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/fD3B1T2_M0s?rel=0&autoplay=1&mute=1&playsinline=1"
+      },
+      {
+        id: "easyship",
+        name: "Easyship",
+        category: "shipping",
+        rating: 4.4,
+        reviews: 288,
+        features: ["250+ global courier integrations", "Dynamic tax & duty checkout", "Global fulfillment sync"],
+        pricing: "Free tier / From $29 / mo",
+        description: "End-to-end international shipping management platform built to scale cross-border commerce seamlessly.",
+        affiliateUrl: "https://www.easyship.com?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/bB3b8uX7J2A?rel=0&autoplay=1&mute=1&playsinline=1"
+      },
+      {
+        id: "sendcloud",
+        name: "Sendcloud",
+        category: "shipping",
+        rating: 4.0,
+        reviews: 97,
+        features: ["Branded tracking emails & SMS", "Self-service returns portal", "Multi-carrier checkout pick-up"],
+        pricing: "Free plan / From €23 / mo",
+        description: "All-in-one European and global shipping platform built to optimize shipping, tracking, and returns.",
+        affiliateUrl: "https://www.sendcloud.com?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/Y0n5c9F3T1c?rel=0&autoplay=1&mute=1&playsinline=1"
+      },
+      {
+        id: "shiprush",
+        name: "Descartes ShipRush",
+        category: "shipping",
+        rating: 4.7,
+        reviews: 59,
+        features: ["Side-by-side carrier rate shopping", "Automated label rules", "Omnichannel order importing"],
+        pricing: "From $29.95 / mo",
+        description: "High-volume multi-carrier desktop and cloud shipping engine built for rapid order processing.",
+        affiliateUrl: "https://shiprush.com?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/W9L5Q8z1V0s?rel=0&autoplay=1&mute=1&playsinline=1"
+      },
+      {
+        id: "printful",
+        name: "Printful",
+        category: "print-on-demand",
+        rating: 4.2,
+        reviews: 77,
+        features: ["Zero inventory requirement", "Worldwide fulfillment centers", "450+ customizable products"],
+        pricing: "Free / Growth plan $24.99 / mo",
+        description: "Industry-standard print-on-demand supplier fulfilling apparel, accessories, and home goods automatically.",
+        affiliateUrl: "https://www.printful.com?ref=YOUR_AFFILIATE_ID",
+        videoEmbed: "https://www.youtube-nocookie.com/embed/8v_4jA1N_9w?rel=0&autoplay=1&mute=1&playsinline=1"
+      }
+    ];
+
+    // Category Metadata for Dynamic Landing Page Views
+    const categoryMeta = {
+      all: {
+        title: "Top 10 Dropshipping Software Platforms (2026 Ranked)",
+        desc: "Compare the highest-rated automation, sourcing, shipping, and print-on-demand tools from verified industry reviews.",
+        video: "https://www.youtube-nocookie.com/embed/gW715vjN7k8?rel=0&autoplay=1&mute=1&playsinline=1",
+        primaryCta: "Explore All 10 Tools",
+        ctaTarget: "https://www.autods.com?ref=YOUR_AFFILIATE_ID"
+      },
+      automation: {
+        title: "Top Dropshipping Automation & Listing Software",
+        desc: "Put your eCommerce business on autopilot with automated inventory synchronization, price repricing, and order fulfillment.",
+        video: "https://www.youtube-nocookie.com/embed/gW715vjN7k8?rel=0&autoplay=1&mute=1&playsinline=1",
+        primaryCta: "Get Started with AutoDS",
+        ctaTarget: "https://www.autods.com?ref=YOUR_AFFILIATE_ID"
+      },
+      sourcing: {
+        title: "Top Supplier Sourcing & Inventory Networks",
+        desc: "Source reliable US, European, and global suppliers with guaranteed inventory counts, fast shipping, and direct store integrations.",
+        video: "https://www.youtube-nocookie.com/embed/e1P0J2y9qK4?rel=0&autoplay=1&mute=1&playsinline=1",
+        primaryCta: "Source US/EU Items with Spocket",
+        ctaTarget: "https://www.spocket.co?ref=YOUR_AFFILIATE_ID"
+      },
+      shipping: {
+        title: "Top Multi-Carrier Shipping & Tracking Platforms",
+        desc: "Reduce your parcel costs by up to 89% with commercial rate shopping, automated label generation, and branded tracking pages.",
+        video: "https://www.youtube-nocookie.com/embed/fD3B1T2_M0s?rel=0&autoplay=1&mute=1&playsinline=1",
+        primaryCta: "Start Free with Shippo",
+        ctaTarget: "https://goshippo.com?ref=YOUR_AFFILIATE_ID"
+      },
+      "print-on-demand": {
+        title: "Top Print-on-Demand Dropshipping Solutions",
+        desc: "Launch your custom merchandise brand without ordering upfront stock. Automated global printing, packaging, and shipping.",
+        video: "https://www.youtube-nocookie.com/embed/8v_4jA1N_9w?rel=0&autoplay=1&mute=1&playsinline=1",
+        primaryCta: "Create Free Printful Account",
+        ctaTarget: "https://www.printful.com?ref=YOUR_AFFILIATE_ID"
+      }
+    };
+
+    function renderContent(catKey) {
+      const meta = categoryMeta[catKey] || categoryMeta.all;
+      const filtered = catKey === 'all'
+        ? products
+        : products.filter(p => p.category === catKey);
+
+      // Update Hero Elements
+      document.getElementById('hero-title').innerText = meta.title;
+      document.getElementById('hero-description').innerText = meta.desc;
+      document.getElementById('hero-video').src = meta.video;
+      document.getElementById('hero-secondary-cta').innerText = meta.primaryCta;
+      document.getElementById('hero-secondary-cta').href = meta.ctaTarget;
+      document.getElementById('section-heading').innerText = catKey === 'all'
+        ? "Comparative Performance Grid (All 10 Software)"
+        : `Comparative Performance Grid (/${catKey})`;
+
+      // Render Comparison Table Rows
+      const tbody = document.getElementById('comparison-table-body');
+      tbody.innerHTML = filtered.map(p => `
+        <tr>
+          <td>
+            <strong>${p.name}</strong>
+            <div style="color: var(--text-muted); font-size: 0.8rem;">Category: /${p.category}</div>
+          </td>
+          <td>
+            <span class="rating-badge">★ ${p.rating.toFixed(1)}</span>
+            <span style="color: var(--text-muted); font-size: 0.8rem;"> (${p.reviews})</span>
+          </td>
+          <td>${p.features.join(" • ")}</td>
+          <td style="color: #38bdf8; font-weight: 600;">${p.pricing}</td>
+          <td>
+            <a href="${p.affiliateUrl}" target="_blank" rel="noopener sponsored" class="btn btn-affiliate" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+              Click to Purchase ➔
+            </a>
+          </td>
+        </tr>
+      `).join('');
+
+      // Render Cards Grid
+      const cardsContainer = document.getElementById('cards-container');
+      cardsContainer.innerHTML = filtered.map(p => `
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <h4 class="card-title">${p.name}</h4>
+              <span class="rating-badge">★ ${p.rating.toFixed(1)}</span>
+            </div>
+            <p class="card-description">${p.description}</p>
+            <ul class="card-features">
+              ${p.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+          </div>
+          <div>
+            <div class="card-pricing">${p.pricing}</div>
+            <a href="${p.affiliateUrl}" target="_blank" rel="noopener sponsored" class="btn btn-affiliate">
+              Purchase on Official Site ➔
+            </a>
+          </div>
+        </div>
+      `).join('');
+
+      // Update Navigation Active State
+      const navLinks = document.querySelectorAll('#category-nav a');
+      navLinks.forEach(link => {
+        const target = link.getAttribute('href').replace('#', '');
+        if (target === catKey) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    function navigate(catKey) {
+      window.location.hash = catKey;
+      renderContent(catKey);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Handle hash route changes on back/forward or reload
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '') || 'all';
+      renderContent(hash);
+    });
+
+    // Initial Load
+    window.addEventListener('DOMContentLoaded', () => {
+      const initialHash = window.location.hash.replace('#', '') || 'all';
+      renderContent(initialHash);
+    });
+  </script>
+</body>
+</html>
